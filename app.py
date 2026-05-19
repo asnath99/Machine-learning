@@ -32,100 +32,114 @@ st.set_page_config(
 # ─────────────────────────────────────────────
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=DM+Serif+Display&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;500;600&display=swap');
 
     html, body, [class*="css"] {
-        font-family: 'DM Sans', sans-serif;
-        background-color: #f0f7f4;
-        color: #1a2e25;
+        font-family: 'Exo 2', sans-serif;
+        background-color: #0d0a1a;
+        color: #e0d7ff;
     }
     h1, h2, h3 {
-        font-family: 'DM Serif Display', serif !important;
-        color: #1a3d2b !important;
+        font-family: 'Orbitron', monospace !important;
+        color: #c084fc !important;
+        letter-spacing: 1px;
     }
-    .main { background-color: #f0f7f4 !important; }
+    .main { background-color: #0d0a1a !important; }
     section[data-testid="stSidebar"] {
-        background-color: #1a3d2b !important;
+        background: linear-gradient(180deg, #120d24 0%, #1a1035 100%) !important;
+        border-right: 1px solid #4c1d95 !important;
     }
     .hero-card {
-        background: linear-gradient(135deg, #1a3d2b 0%, #27ae60 100%);
+        background: linear-gradient(135deg, #1e1045 0%, #5b21b6 50%, #7c3aed 100%);
         border-radius: 20px;
         padding: 2.5rem;
         color: white;
         margin-bottom: 1.5rem;
-        box-shadow: 0 8px 32px rgba(39,174,96,0.25);
-        border-left: 6px solid #a8e6c1;
+        box-shadow: 0 8px 40px rgba(124,58,237,0.4);
+        border: 1px solid #7c3aed;
+        position: relative;
+        overflow: hidden;
     }
     .metric-card {
-        background: white;
-        border: 1px solid #c8e6d4;
+        background: linear-gradient(135deg, #1e1045, #2d1b69);
+        border: 1px solid #7c3aed;
         border-radius: 14px;
         padding: 1.4rem;
         text-align: center;
         margin: 0.3rem;
-        box-shadow: 0 2px 12px rgba(39,174,96,0.08);
+        box-shadow: 0 4px 20px rgba(124,58,237,0.2);
     }
     .metric-value {
-        font-family: 'DM Serif Display', serif;
-        font-size: 2.2rem;
-        font-weight: 700;
-        color: #1a7a45;
+        font-family: 'Orbitron', monospace;
+        font-size: 2rem;
+        font-weight: 900;
+        color: #c084fc;
+        text-shadow: 0 0 20px rgba(192,132,252,0.5);
     }
     .metric-label {
-        font-size: 0.78rem;
-        color: #5a8a6e;
+        font-size: 0.75rem;
+        color: #a78bfa;
         text-transform: uppercase;
-        letter-spacing: 1.5px;
+        letter-spacing: 2px;
         margin-top: 0.3rem;
     }
     .result-positive {
-        background: linear-gradient(135deg, #c0392b, #96281b);
+        background: linear-gradient(135deg, #7f1d1d, #991b1b);
         border-radius: 16px;
         padding: 2rem;
         color: white;
         text-align: center;
-        font-family: 'DM Serif Display', serif;
-        font-size: 1.5rem;
-        box-shadow: 0 8px 32px rgba(192,57,43,0.3);
-        border-left: 6px solid #f1948a;
+        font-family: 'Orbitron', monospace;
+        font-size: 1.2rem;
+        box-shadow: 0 8px 32px rgba(239,68,68,0.4);
+        border: 1px solid #ef4444;
     }
     .result-negative {
-        background: linear-gradient(135deg, #1a3d2b, #27ae60);
+        background: linear-gradient(135deg, #1e1045, #5b21b6);
         border-radius: 16px;
         padding: 2rem;
         color: white;
         text-align: center;
-        font-family: 'DM Serif Display', serif;
-        font-size: 1.5rem;
-        box-shadow: 0 8px 32px rgba(39,174,96,0.3);
-        border-left: 6px solid #a8e6c1;
+        font-family: 'Orbitron', monospace;
+        font-size: 1.2rem;
+        box-shadow: 0 8px 32px rgba(124,58,237,0.4);
+        border: 1px solid #7c3aed;
     }
     .section-title {
-        font-family: 'DM Serif Display', serif;
-        font-size: 1.4rem;
-        border-left: 5px solid #27ae60;
+        font-family: 'Orbitron', monospace;
+        font-size: 1.1rem;
+        font-weight: 700;
+        border-left: 4px solid #7c3aed;
         padding: 0.6rem 1rem;
         margin: 1.5rem 0 1rem 0;
-        color: #1a3d2b;
-        background: linear-gradient(90deg, #e8f5ee, transparent);
+        color: #c084fc;
+        background: linear-gradient(90deg, rgba(124,58,237,0.15), transparent);
         border-radius: 0 8px 8px 0;
+        text-shadow: 0 0 15px rgba(192,132,252,0.3);
+        letter-spacing: 1px;
     }
     .stButton>button {
-        background: linear-gradient(135deg, #1a3d2b, #27ae60) !important;
+        background: linear-gradient(135deg, #5b21b6, #7c3aed) !important;
         color: white !important;
-        border: none !important;
+        border: 1px solid #a78bfa !important;
         border-radius: 10px !important;
-        font-family: 'DM Sans', sans-serif !important;
-        font-weight: 600 !important;
-        font-size: 1rem !important;
+        font-family: 'Orbitron', monospace !important;
+        font-weight: 700 !important;
+        font-size: 0.9rem !important;
         padding: 0.7rem 2rem !important;
         width: 100%;
         transition: all 0.3s ease !important;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 15px rgba(124,58,237,0.3) !important;
     }
     .stButton>button:hover {
         transform: translateY(-2px) !important;
-        box-shadow: 0 8px 20px rgba(39,174,96,0.35) !important;
+        box-shadow: 0 8px 25px rgba(124,58,237,0.5) !important;
+        border-color: #c084fc !important;
     }
+    .stDataFrame { border-radius: 12px; overflow: hidden; border: 1px solid #4c1d95; }
+    .stSelectbox label, .stSlider label { color: #a78bfa !important; }
+    div[data-testid="stMetric"] { background: #1e1045; border-radius: 10px; padding: 1rem; border: 1px solid #4c1d95; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -210,7 +224,7 @@ page = st.sidebar.radio(
 st.sidebar.markdown("---")
 st.sidebar.markdown("""
 <div style='color:#666; font-size:0.75rem; text-align:center;'>
-    Développé par<br>Maré Richard & Tapsoba Asnath<br>IFOAD 2024
+    Développé par<br>Maré Richard & Tapsoba Asnath<br>IFOAD 2026
 </div>
 """, unsafe_allow_html=True)
 
@@ -302,13 +316,13 @@ if page == "🏠 Accueil":
     # Distribution cible
     st.markdown("<div class='section-title'>Distribution des Classes</div>", unsafe_allow_html=True)
     fig, axes = plt.subplots(1, 2, figsize=(12, 4))
-    fig.patch.set_facecolor('#f0f7f4')
+    fig.patch.set_facecolor('#0d0a1a')
     for ax in axes:
-        ax.set_facecolor('#f8fbf9')
+        ax.set_facecolor('#120d24')
 
     counts = df['target'].value_counts()
     axes[0].bar(['Sain (0)', 'Malade (1)'], [counts[0], counts[1]],
-                color=['#27ae60', '#e74c3c'], edgecolor='white', linewidth=0.5)
+                color=['#10b981', '#ef4444'], edgecolor='white', linewidth=0.5)
     axes[0].set_title('Répartition des patients', color='white', fontsize=12)
     axes[0].tick_params(colors='white')
     axes[0].spines['bottom'].set_color('#444')
@@ -319,7 +333,7 @@ if page == "🏠 Accueil":
         axes[0].text(i, v + 2, str(v), ha='center', color='white', fontweight='bold')
 
     axes[1].pie([counts[0], counts[1]], labels=['Sain', 'Malade'],
-                colors=['#27ae60', '#e74c3c'], autopct='%1.1f%%',
+                colors=['#10b981', '#ef4444'], autopct='%1.1f%%',
                 startangle=90, textprops={'color': 'white'})
     axes[1].set_title('Proportion des classes', color='white', fontsize=12)
 
@@ -357,25 +371,25 @@ elif page == "📊 Analyse des Données":
         variable = st.selectbox("Choisir une variable :", feature_names)
 
         fig, axes = plt.subplots(1, 2, figsize=(12, 4))
-        fig.patch.set_facecolor('#f0f7f4')
+        fig.patch.set_facecolor('#0d0a1a')
         for ax in axes:
-            ax.set_facecolor('#f8fbf9')
-            ax.tick_params(colors='#1a3d2b')
+            ax.set_facecolor('#120d24')
+            ax.tick_params(colors='#a78bfa')
             for spine in ax.spines.values():
                 spine.set_color('#444')
 
-        axes[0].hist(df[variable], bins=20, color='#e74c3c', edgecolor='white', alpha=0.8)
+        axes[0].hist(df[variable], bins=20, color='#ef4444', edgecolor='white', alpha=0.8)
         axes[0].axvline(df[variable].mean(), color='yellow', linestyle='--', linewidth=2,
                         label=f'Moyenne: {df[variable].mean():.1f}')
-        axes[0].set_title(f'Distribution de {variable}', color='#1a3d2b')
-        axes[0].legend(labelcolor='#1a3d2b')
+        axes[0].set_title(f'Distribution de {variable}', color='#c084fc')
+        axes[0].legend(labelcolor='#c084fc')
 
-        df[df['target']==0][variable].hist(bins=20, alpha=0.7, color='#27ae60',
+        df[df['target']==0][variable].hist(bins=20, alpha=0.7, color='#10b981',
                                             label='Sain', ax=axes[1])
-        df[df['target']==1][variable].hist(bins=20, alpha=0.7, color='#e74c3c',
+        df[df['target']==1][variable].hist(bins=20, alpha=0.7, color='#ef4444',
                                             label='Malade', ax=axes[1])
-        axes[1].set_title(f'{variable} par Diagnostic', color='#1a3d2b')
-        axes[1].legend(labelcolor='#1a3d2b')
+        axes[1].set_title(f'{variable} par Diagnostic', color='#c084fc')
+        axes[1].legend(labelcolor='#c084fc')
 
         plt.tight_layout()
         st.pyplot(fig)
@@ -393,14 +407,14 @@ elif page == "📊 Analyse des Données":
     with tab3:
         st.markdown("<div class='section-title'>Matrice de Corrélation</div>", unsafe_allow_html=True)
         fig, ax = plt.subplots(figsize=(12, 9))
-        fig.patch.set_facecolor('#f0f7f4')
-        ax.set_facecolor('#f8fbf9')
+        fig.patch.set_facecolor('#0d0a1a')
+        ax.set_facecolor('#120d24')
         corr = df.corr()
         mask = np.triu(np.ones_like(corr, dtype=bool))
         sns.heatmap(corr, annot=True, fmt='.2f', cmap='coolwarm',
                     mask=mask, linewidths=0.5, ax=ax,
                     annot_kws={'color': 'white', 'size': 8})
-        ax.tick_params(colors='#1a3d2b')
+        ax.tick_params(colors='#a78bfa')
         ax.set_title('Matrice de Corrélation', color='white', fontsize=14)
         plt.tight_layout()
         st.pyplot(fig)
@@ -435,8 +449,8 @@ elif page == "🤖 Modèles ML":
     metric_choice = st.selectbox("Métrique à afficher :", ['Accuracy', 'Précision', 'Rappel', 'F1-Score', 'AUC-ROC'])
 
     fig, ax = plt.subplots(figsize=(10, 5))
-    fig.patch.set_facecolor('#f0f7f4')
-    ax.set_facecolor('#f8fbf9')
+    fig.patch.set_facecolor('#0d0a1a')
+    ax.set_facecolor('#120d24')
 
     names  = list(results.keys())
     values = [results[n][metric_choice] for n in names]
@@ -444,12 +458,12 @@ elif page == "🤖 Modèles ML":
 
     bars = ax.bar(names, values, color=colors, edgecolor='white', linewidth=0.5, alpha=0.9)
     ax.set_ylim(0, 1.15)
-    ax.set_ylabel(metric_choice, color='#1a3d2b')
-    ax.set_title(f'Comparaison — {metric_choice}', color='#1a3d2b', fontsize=14)
-    ax.tick_params(colors='#1a3d2b', axis='both')
+    ax.set_ylabel(metric_choice, color='#c084fc')
+    ax.set_title(f'Comparaison — {metric_choice}', color='#c084fc', fontsize=14)
+    ax.tick_params(colors='#a78bfa', axis='both')
     ax.tick_params(axis='x', rotation=20)
     for spine in ax.spines.values():
-        spine.set_color('#c8e6d4')
+        spine.set_color('#4c1d95')
     for bar, val in zip(bars, values):
         ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 0.01,
                 f'{val*100:.1f}%', ha='center', color='white', fontsize=9, fontweight='bold')
@@ -461,23 +475,23 @@ elif page == "🤖 Modèles ML":
     # Courbes ROC
     st.markdown("<div class='section-title'>Courbes ROC</div>", unsafe_allow_html=True)
     fig, ax = plt.subplots(figsize=(10, 6))
-    fig.patch.set_facecolor('#f0f7f4')
-    ax.set_facecolor('#f8fbf9')
+    fig.patch.set_facecolor('#0d0a1a')
+    ax.set_facecolor('#120d24')
 
-    roc_colors = ['#e74c3c','#3498db','#2ecc71','#9b59b6','#f39c12','#1abc9c']
+    roc_colors = ['#ef4444','#7c3aed','#10b981','#f59e0b','#ec4899','#06b6d4']
     for (name, res), color in zip(results.items(), roc_colors):
         fpr, tpr, _ = roc_curve(res['y_test'], res['y_pred_proba'])
         ax.plot(fpr, tpr, color=color, linewidth=2,
                 label=f"{name} (AUC={res['AUC-ROC']:.3f})")
 
     ax.plot([0,1],[0,1], 'k--', linewidth=1, label='Aléatoire')
-    ax.set_xlabel('Taux Faux Positifs', color='#1a3d2b')
-    ax.set_ylabel('Taux Vrais Positifs', color='#1a3d2b')
+    ax.set_xlabel('Taux Faux Positifs', color='#c084fc')
+    ax.set_ylabel('Taux Vrais Positifs', color='#c084fc')
     ax.set_title('Courbes ROC — Tous les modèles', color='white', fontsize=14)
-    ax.tick_params(colors='#1a3d2b')
-    ax.legend(loc='lower right', labelcolor='#1a3d2b', facecolor='white', edgecolor='#c8e6d4')
+    ax.tick_params(colors='#a78bfa')
+    ax.legend(loc='lower right', labelcolor='#a78bfa', facecolor='#120d24', edgecolor='#4c1d95')
     for spine in ax.spines.values():
-        spine.set_color('#c8e6d4')
+        spine.set_color('#4c1d95')
 
     plt.tight_layout()
     st.pyplot(fig)
@@ -488,17 +502,17 @@ elif page == "🤖 Modèles ML":
     selected_model = st.selectbox("Choisir un modèle :", list(results.keys()))
 
     fig, ax = plt.subplots(figsize=(6, 4))
-    fig.patch.set_facecolor('#f0f7f4')
-    ax.set_facecolor('#f8fbf9')
+    fig.patch.set_facecolor('#0d0a1a')
+    ax.set_facecolor('#120d24')
 
     cm = confusion_matrix(results[selected_model]['y_test'], results[selected_model]['y_pred'])
     sns.heatmap(cm, annot=True, fmt='d', cmap='Reds', ax=ax,
                 xticklabels=['Sain', 'Malade'], yticklabels=['Sain', 'Malade'],
-                linewidths=1, linecolor='white')
-    ax.set_xlabel('Prédit', color='#1a3d2b')
-    ax.set_ylabel('Réel', color='#1a3d2b')
-    ax.set_title(f'Matrice de Confusion — {selected_model}', color='#1a3d2b')
-    ax.tick_params(colors='#1a3d2b')
+                linewidths=1, linecolor='#0d0a1a')
+    ax.set_xlabel('Prédit', color='#c084fc')
+    ax.set_ylabel('Réel', color='#c084fc')
+    ax.set_title(f'Matrice de Confusion — {selected_model}', color='#c084fc')
+    ax.tick_params(colors='#a78bfa')
 
     plt.tight_layout()
     st.pyplot(fig)
@@ -584,14 +598,14 @@ elif page == "🔮 Prédiction":
         with col2:
             # Graphique probabilité
             fig, ax = plt.subplots(figsize=(5, 4))
-            fig.patch.set_facecolor('#f0f7f4')
-            ax.set_facecolor('#f8fbf9')
+            fig.patch.set_facecolor('#0d0a1a')
+            ax.set_facecolor('#120d24')
             bars = ax.bar(['Sain', 'Malade'], [probability[0]*100, probability[1]*100],
-                          color=['#27ae60', '#e74c3c'], edgecolor='#1a3d2b')
+                          color=['#10b981', '#ef4444'], edgecolor='#c084fc')
             ax.set_ylim(0, 110)
-            ax.set_ylabel('Probabilité (%)', color='#1a3d2b')
-            ax.set_title('Probabilités', color='#1a3d2b')
-            ax.tick_params(colors='#1a3d2b')
+            ax.set_ylabel('Probabilité (%)', color='#c084fc')
+            ax.set_title('Probabilités', color='#c084fc')
+            ax.tick_params(colors='#a78bfa')
             for spine in ax.spines.values():
                 spine.set_color('#444')
             for bar, val in zip(bars, [probability[0]*100, probability[1]*100]):
