@@ -17,9 +17,8 @@ from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
 
-# ─────────────────────────────────────────────
+
 # CONFIG DE LA PAGE
-# ─────────────────────────────────────────────
 st.set_page_config(
     page_title="⚕️ Heart Disease Predictor",
     page_icon="⚕️",
@@ -27,9 +26,8 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# ─────────────────────────────────────────────
 # CSS PERSONNALISÉ
-# ─────────────────────────────────────────────
+
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;500;600&display=swap');
@@ -144,9 +142,9 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# ─────────────────────────────────────────────
+
 # CHARGEMENT DES DONNÉES ET MODÈLES
-# ─────────────────────────────────────────────
+
 @st.cache_data
 def load_data():
     try:
@@ -203,22 +201,21 @@ def train_models(df):
     return models, results, scaler, X_test, y_test, X.columns.tolist()
 
 
-# ─────────────────────────────────────────────
 # SIDEBAR NAVIGATION
-# ─────────────────────────────────────────────
+
 st.sidebar.markdown("""
 <div style='text-align:center; padding: 1rem 0;'>
     <span style='font-size:3rem'>⚕️</span>
     <h2 style='font-family:Syne,sans-serif; color:white; margin:0;'>Heart AI</h2>
-    <p style='color:#e74c3c; font-size:0.85rem; font-weight:600; margin:0.3rem 0 0 0;'>Maré Richard</p>
-    <p style='color:#e74c3c; font-size:0.85rem; font-weight:600; margin:0.1rem 0 0 0;'>Tapsoba Asnath</p>
+    <p style='color:#e74c3c; font-size:0.85rem; font-weight:600; margin:0.3rem 0 0 0;'>Prédiction </p>
+    <p style='color:#e74c3c; font-size:0.85rem; font-weight:600; margin:0.1rem 0 0 0;'>Des Maladies Cardiaques</p>
     <p style='color:#666; font-size:0.75rem; margin:0.4rem 0 0 0;'>IFOAD — 2026</p>
 </div>
 """, unsafe_allow_html=True)
 
 page = st.sidebar.radio(
     "Navigation",
-    ["🏠 Accueil", "📊 Analyse des Données", "🤖 Modèles ML", "🔮 Prédiction"]
+    [" Accueil", " Analyse des Données", " Modèles ML", " Prédiction"]
 )
 
 st.sidebar.markdown("---")
@@ -229,10 +226,8 @@ st.sidebar.markdown("""
 """, unsafe_allow_html=True)
 
 
-# ─────────────────────────────────────────────
 # CHARGEMENT
-# ─────────────────────────────────────────────
-with st.spinner("⏳ Chargement des données et entraînement des modèles..."):
+with st.spinner(" Chargement des données et entraînement des modèles..."):
     df = load_data()
 
 if df is None:
@@ -242,10 +237,8 @@ if df is None:
 models, results, scaler, X_test, y_test, feature_names = train_models(df)
 
 
-# ═══════════════════════════════════════════════
 # PAGE 1 : ACCUEIL
-# ═══════════════════════════════════════════════
-if page == "🏠 Accueil":
+if page == " Accueil":
     st.markdown("""
     <div class='hero-card'>
         <h1 style='margin:0; font-size:2.5rem;'>⚕️ Prédiction des Maladies Cardiaques</h1>
@@ -302,11 +295,11 @@ if page == "🏠 Accueil":
     with col2:
         st.markdown("""
         **Métriques d'évaluation :**
-        - ✅ Accuracy
-        - ✅ Précision
-        - ✅ Rappel
-        - ✅ F1-Score
-        - ✅ AUC-ROC
+        -  Accuracy
+        -  Précision
+        -  Rappel
+        -  F1-Score
+        -  AUC-ROC
 
         
         """)
@@ -340,11 +333,11 @@ if page == "🏠 Accueil":
     plt.close()
 
 
-# ═══════════════════════════════════════════════
+
 # PAGE 2 : ANALYSE DES DONNÉES
-# ═══════════════════════════════════════════════
-elif page == "📊 Analyse des Données":
-    st.markdown("# 📊 Analyse Exploratoire des Données")
+
+elif page == " Analyse des Données":
+    st.markdown("#  Analyse Exploratoire des Données")
 
     tab1, tab2, tab3 = st.tabs(["📋 Aperçu", "📈 Distributions", "🔗 Corrélations"])
 
@@ -419,11 +412,11 @@ elif page == "📊 Analyse des Données":
         plt.close()
 
 
-# ═══════════════════════════════════════════════
+
 # PAGE 3 : MODÈLES ML
-# ═══════════════════════════════════════════════
-elif page == "🤖 Modèles ML":
-    st.markdown("# 🤖 Comparaison des Modèles de Machine Learning")
+
+elif page == " Modèles ML":
+    st.markdown("#  Comparaison des Modèles de Machine Learning")
 
     # Tableau des métriques
     st.markdown("<div class='section-title'>Tableau Comparatif des Performances</div>", unsafe_allow_html=True)
@@ -440,7 +433,7 @@ elif page == "🤖 Modèles ML":
     st.dataframe(metrics_df, use_container_width=True)
 
     best_name = max(results, key=lambda x: results[x]['F1-Score'])
-    st.success(f"🏆 Meilleur modèle : **{best_name}** avec F1-Score = {results[best_name]['F1-Score']*100:.2f}%")
+    st.success(f" Meilleur modèle : **{best_name}** avec F1-Score = {results[best_name]['F1-Score']*100:.2f}%")
 
     # Graphique de comparaison
     st.markdown("<div class='section-title'>Visualisation des Performances</div>", unsafe_allow_html=True)
@@ -517,11 +510,10 @@ elif page == "🤖 Modèles ML":
     plt.close()
 
 
-# ═══════════════════════════════════════════════
 # PAGE 4 : PRÉDICTION
-# ═══════════════════════════════════════════════
-elif page == "🔮 Prédiction":
-    st.markdown("# 🔮 Prédiction pour un Nouveau Patient")
+
+elif page == " Prédiction":
+    st.markdown("#  Prédiction pour un Nouveau Patient")
     st.markdown("Remplis les informations du patient ci-dessous :")
 
     col1, col2, col3 = st.columns(3)
@@ -548,7 +540,7 @@ elif page == "🔮 Prédiction":
         oldpeak  = st.slider("Dépression ST (oldpeak)", 0.0, 6.0, 1.0, step=0.1)
 
     with col3:
-        st.markdown("**💪 Test à l'effort**")
+        st.markdown("** Test à l'effort**")
         exang = st.selectbox("Angine à l'exercice",
                               [0,1], format_func=lambda x: "Non" if x==0 else "Oui")
         slope = st.selectbox("Pente du segment ST",
@@ -558,10 +550,10 @@ elif page == "🔮 Prédiction":
         thal  = st.selectbox("Thalassémie",
                               [3,6,7],
                               format_func=lambda x: {3:"Normal",6:"Défaut fixé",7:"Défaut réversible"}[x])
-        model_choice = st.selectbox("🤖 Algorithme à utiliser", list(models.keys()))
+        model_choice = st.selectbox(" Algorithme à utiliser", list(models.keys()))
 
     st.markdown("---")
-    if st.button("🔮 Lancer la Prédiction"):
+    if st.button(" Lancer la Prédiction"):
         # Préparer les données du patient
         patient_data = np.array([[age, sex, cp, trestbps, chol, fbs,
                                    restecg, thalach, exang, oldpeak, slope, ca, thal]])
@@ -586,7 +578,7 @@ elif page == "🔮 Prédiction":
             else:
                 st.markdown(f"""
                 <div class='result-negative'>
-                    ✅ AUCUNE MALADIE CARDIAQUE DÉTECTÉE<br>
+                     AUCUNE MALADIE CARDIAQUE DÉTECTÉE<br>
                     <span style='font-size:1rem; opacity:0.9;'>
                         Probabilité d'être sain : {probability[0]*100:.1f}%
                     </span>
