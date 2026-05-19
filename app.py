@@ -212,7 +212,7 @@ st.sidebar.markdown("""
     <h2 style='font-family:Syne,sans-serif; color:white; margin:0;'>Heart AI</h2>
     <p style='color:#e74c3c; font-size:0.85rem; font-weight:600; margin:0.3rem 0 0 0;'>Maré Richard</p>
     <p style='color:#e74c3c; font-size:0.85rem; font-weight:600; margin:0.1rem 0 0 0;'>Tapsoba Asnath</p>
-    <p style='color:#666; font-size:0.75rem; margin:0.4rem 0 0 0;'>IFOAD — 2024</p>
+    <p style='color:#666; font-size:0.75rem; margin:0.4rem 0 0 0;'>IFOAD — 2026</p>
 </div>
 """, unsafe_allow_html=True)
 
