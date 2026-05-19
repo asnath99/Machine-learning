@@ -308,9 +308,7 @@ if page == "🏠 Accueil":
         - ✅ F1-Score
         - ✅ AUC-ROC
 
-        **Livrables :**
-        - Jupyter Notebook
-        - Application Streamlit
+        
         """)
 
     # Distribution cible
